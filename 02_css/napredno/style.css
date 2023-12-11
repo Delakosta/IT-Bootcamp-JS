@@ -1,0 +1,73 @@
+/* Kada vise elemenata imaju isto svojstvo */
+
+h3, h4 {
+    color: orange;
+}
+/* Prisatupanje klasi */
+
+.desno_poravnjanje {
+    text-align: right;
+}
+
+.crveni_tekst {
+    color: red;
+}
+
+.drugi {
+    background-color: yellow;
+}
+
+#treci {
+    background-color: bisque;
+    font-style: italic;
+}
+
+/* Prioritet selektora */
+
+li {
+    color: limegreen;
+}
+
+.stavka {
+    color: blue;
+}
+
+#prva_stavka {
+    color: orange;
+}
+
+/* Kombinator razmak */
+
+div p {
+    color: aquamarine;
+}
+
+div>p {
+    border: 1px solid;
+}
+
+/* Stilizacija linka */
+a {
+    color: green;
+    text-decoration: none;
+}
+
+a:visited {
+    color: brown;
+}
+a:hover {
+    color: yellow;
+}
+
+/* Pseudo selektori - svaki prvi potomak */
+
+p:first-child {
+    font-weight: bolder;
+}
+
+/* Pseudo selektori - svaki treci (bas treci je samo (3)) */
+
+li:nth-child(3n) {
+    font-weight: bolder;
+}
+

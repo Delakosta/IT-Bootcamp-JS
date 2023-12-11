@@ -1,0 +1,29 @@
+div {
+    background-color: azure;
+    border: 2px solid crimson;
+    width: 200px;
+    height: 130px;
+    position: relative;
+}
+#d2 {
+    position: fixed;
+    bottom: 10px;
+    left: 30px;
+    z-index: 1;
+}
+#d1 {
+    position: relative;
+    top: -10px;
+    left: 20px;
+}
+div h3 {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    margin: 0;
+}
+div p {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+}

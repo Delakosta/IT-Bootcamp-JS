@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header {
+    background-image: url("https://www.shutterstock.com/shutterstock/photos/1988714621/display_1500/stock-photo-line-of-italian-pizza-portions-with-a-variety-of-trimmings-displayed-in-a-panorama-banner-or-header-1988714621.jpg");
+    height: 200px;
+    position: relative;
+}
+/*#d1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#d2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#d3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+#d4 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}*/
+#d5 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+h1 {
+    color: blanchedalmond;
+}
+
+/* Navigacija */
+
+.topbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.topbar ul {
+    overflow: hidden;
+    list-style: none;
+}
+.topbar ul li {
+    float: left;
+    width: 25%;
+    border: 1px solid red;
+    text-align: center;
+    background-color: brown;
+}
+.topbar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 18px;
+    display: block;
+}
+.topbar ul li:hover {
+    background-color: chocolate;
+}
+
+/*Padajuci meni*/
+.dropdown {
+    display: none;
+}
+.topbar li:nth-child(4):hover .dropdown {
+    display: block;
+}

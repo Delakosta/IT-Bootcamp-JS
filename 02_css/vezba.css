@@ -1,0 +1,48 @@
+h1 {
+    color: crimson;
+}
+h2 {
+    color: blueviolet;
+}
+p {
+    color: blue;
+    font-size: 20px;
+}
+img {
+    width: 400px;
+    height: 300px;
+    border: 2px dashed;
+    border-radius: 20%;
+}
+a {
+    color: brown;
+}
+body {
+    background-color: lightgray;
+    font-family: Arial;
+}
+.treci_naslov {
+    text-align: center;
+}
+.parag {
+    text-align: right;
+    font-size: 24px;
+}
+
+li:nth-child(odd){
+
+    color: green;
+}
+
+a:visited {
+    color: green;
+}
+a:hover {
+    background-color: yellow;
+}
+
+h3:last-of-type {
+    text-align: center;
+    color: green;
+    font-family: 'Times New Roman';
+}

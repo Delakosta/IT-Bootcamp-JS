@@ -1,0 +1,21 @@
+div {
+    background-color: brown;
+    overflow: hidden;
+}
+p {
+    background-color: aquamarine;
+    width: 250px;
+    height: 50px;
+    border: 2px solid blue;
+    float: right;
+}
+/*
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }*/
+  
+  p:nth-child(2n) {
+    float: left;
+  }
