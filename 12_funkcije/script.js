@@ -204,27 +204,27 @@ bojaParagrafa("rgb(200,150,100)");
 Pitanje: Kako bismo realizovali ovaj zadatak da se tražio n-ti mesec u godini?*/
 
 function sedmiDan(n) {
-    if (n == 6) {
-        return "subota"
-    }
-    else if (n == 1) {
+    if (n % 7 == 1) {
         return "ponedeljak"
     }
-    else if ( n == 2) {
+    else if (n % 7 == 2) {
         return "utorak"
     }
-    else if ( n == 3) {
+    else if ( n % 7 == 3) {
         return "sreda"
     }
-    else if ( n == 4) {
+    else if ( n % 7 == 4) {
         return "cetvrtak"
     }
-    else if ( n == 5) {
+    else if ( n % 7 == 5) {
         return "petak"
+    }
+    else if ( n % 7 == 6) {
+        return "subota"
     }
     else {
         return "nedelja"
     }
 }
-let dan = sedmiDan(9);
+let dan = sedmiDan(1);
 console.log(`Danas je ${dan}`);
