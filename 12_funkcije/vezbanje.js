@@ -234,3 +234,14 @@ tektsFont5("Ovo je neki tekst");
 npr: t=15, p=20, n=25, čekanje je 0s
 npr: t=15, p=10, n=12, čekanje je 7s*/
 
+function igreBezGranica(t, p, n) {
+    if (p > t || t > p + n) {
+        console.log(`Cekanje je 0 sekundi`);       
+    }
+    else {
+        let cekanje = p + n - t;
+        console.log(`Cekanje je ${cekanje} sekundi`)
+    }
+}
+
+igreBezGranica(15, 10 , 12);

@@ -373,7 +373,7 @@ function igreBezGranica(t, p, n) {
     }
     else {
         let cekanje = p + n - t;
-        console.log(`Cekanje je ${cekanje} sekindi`)
+        console.log(`Cekanje je ${cekanje} sekundi`)
     }
 }
 
