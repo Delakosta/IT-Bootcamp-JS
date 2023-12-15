@@ -96,6 +96,48 @@ let prikaziSliku = (adresa) => (`<img src= "${adresa}">`);
 document.getElementById('d1').innerHTML += prikaziSliku("https://stock.wikimini.org/w/images/6/60/W-200x200-300dpi.png");
 
 
+// Napisati funkciju koja za unetu boju na engleskom jeziku boji tekst paragrafa u tu boju.
+
+
+let tekstParagrafa = (boja) => {
+    document.getElementById('p1').style.color = boja;
+}
+
+tekstParagrafa("blue");
+
+
+// Napisati funkciju deljivSaTri koja se koristi u ispisivanju brojeva koji su deljivi sa tri u intervalu od n do m.
+// Prebrojati koliko ima ovakvih brojeva od n do m.
+
+let deljivSaTri = (n, m) => {
+    let br = 0;
+    for (let i = n; i <= m; i++) {
+        if (i % 3 == 0) {
+            console.log(i);
+            br++;
+        }
+    }
+    console.log(`Ukupno deljivih brojeva sa 3 od ${n} do ${m} ima: ${br}`);
+}
+
+deljivSaTri(30, 45);
+
+
+
+// Napisati funkciju sumiraj koja određuje i vraća sumu brojeva od n do m. 
+// Brojeve n i m proslediti kao parametre funkciji.
+
+
+let sumiraj = (n, m) => {
+    let suma = 0;
+    for (let i = n; i <= m; i++) {
+        suma += i;
+    }
+    return suma;
+}
+console.log(sumiraj(2, 5));
+
+
 
 
 
