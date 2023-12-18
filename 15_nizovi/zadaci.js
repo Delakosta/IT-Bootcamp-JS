@@ -272,3 +272,83 @@ console.log(neparPar(brojevi1));
 console.log(neparPar(brojevi2));
 console.log(neparPar(brojevi3));
 console.log(neparPar(brojevi4));
+
+
+// Zadatak 19 - Ispisati dužinu svakog elementa u nizu stringova. 
+
+let imena = ["Uros", "Milos", "Vuk", "Ana", "Snezana", "Dragan"];
+
+
+let duzinaSvakogElementa = niz => {
+    for (let i = 0; i < niz.length; i++) {
+        // niz[i] je string
+        let s = niz[i];
+        console.log(s.length);
+    }
+}
+duzinaSvakogElementa(imena);
+
+
+
+// Zadatak 20 - Odrediti element u nizu stringova sa najvećom dužinom.
+
+let najduziEl = niz => {
+    let maxString = niz[0]; //string sa max duzinom
+    let maxDuzina = maxString.length; // maksimalna duzina
+    for (let i = 1; i < niz.length; i++) {
+        let s = niz[i];
+        if (s.length > maxDuzina) {
+            maxString = s;
+            maxDuzina = s.length;
+        }
+    }
+    return maxString;
+}
+console.log(najduziEl(imena));
+
+
+
+// Zadatak 21 - Odrediti broj elemenata u nizu stringova čija je dužina veća od prosečne dužine svih stringova u nizu.
+
+
+let prosecnaDuzina = niz => {
+        let zbirDuzina = 0;
+        for (let i = 0; i < niz.length; i++) {
+            let s = niz[i];
+            zbirDuzina += s.length;
+        }
+        return zbirDuzina / niz.length;
+}
+console.log(prosecnaDuzina(imena));
+
+
+let brojNatprosecnoDugih = niz => {
+    let pd = prosecnaDuzina(niz);
+    let br = 0;
+    for (let i = 0; i < niz.length; i++) {
+        let s = niz[i];
+        if (s.length > pd) {
+            br++;
+        }
+    }
+    return br;
+}
+console.log(prosecnaDuzina(imena));
+console.log(brojNatprosecnoDugih(imena));
+
+
+
+// Zadatak 22 - Odrediti broj elemenata u nizu stringova koji sadrže slovo 'a’. 
+
+let sadrzeA = niz => {
+    let br = 0;
+    for (let i = 0; i < niz.length; i++) {
+        if (niz[i].includes('a')) {
+            br++;
+        }
+    }
+    return br;
+}
+console.log(sadrzeA(imena));
+
+
