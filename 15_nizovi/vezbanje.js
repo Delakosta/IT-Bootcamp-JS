@@ -212,3 +212,176 @@ let znakNepar = niz => {
     return niz;
 }
 console.log(znakNepar(brojevi1));
+
+
+
+let imena = ["Uros", "Ivan", "Snezana", "Dragan", "Vuk", "Ana"];
+
+
+
+// Ispisati dužinu svakog elementa u nizu stringova. 
+
+let ispisImena = niz => {
+    for (let i = 0; i < niz.length; i++) {
+        let br = 0;
+        for (let j = 0; j < niz[i].length; j++) {
+            br++;
+        }
+    console.log(br);
+    }
+}
+ispisImena(imena);
+
+
+// Prostiji nacin
+
+let ispisImena2 = niz => {
+    for (let i = 0; i < niz.length; i++) {
+        let s = niz[i];
+        console.log(s.length);
+    }
+}
+ispisImena2(imena);
+
+
+
+// Odrediti element u nizu stringova sa najvećom dužinom.
+
+let najvecaDuz = niz => {
+    let duz = niz[0].length;
+    let ime = niz[0];
+    for (let i = 1; i < niz.length; i++) {
+        if (niz[i].length > duz) {
+            duz = niz[i].length;
+            ime = niz[i];
+        }
+    }
+    console.log(ime);
+}
+najvecaDuz(imena);
+
+
+
+// Odrediti broj elemenata u nizu stringova čija je dužina veća od prosečne dužine svih stringova u nizu.
+
+let prosecnaDuzinaStringova = niz => {
+    let zbir = 0;
+    for (let i = 0; i < niz.length; i++) {
+        zbir += niz[i].length;
+    }
+    return zbir / niz.length;
+}
+console.log(prosecnaDuzinaStringova(imena));
+
+let vecaOdProsecneDuzine = niz => {
+    let br = 0;
+    for (let i = 0; i < niz.length; i++) {
+        if (niz[i].length > prosecnaDuzinaStringova(niz)) {
+            br++;
+        }
+    }
+    console.log(br);
+}
+vecaOdProsecneDuzine(imena);
+
+
+
+// Odrediti broj elemenata u nizu stringova koji sadrže slovo 'a’. 
+
+let sadrzeA = niz => {
+    let br = 0;
+    for (let i = 0; i < niz.length; i++) {
+        if (niz[i].includes('a')) {
+            br++;
+        }
+    }
+    console.log(br);
+}
+sadrzeA(imena);
+
+// 2 nacin
+
+let sadrzeA2 = niz => {
+    let br = 0;
+    for (let i = 0; i < niz.length; i++) {
+        for (let j = 0; j < niz[i].length; j++) {
+            if (niz[i][j] == 'a') {
+                br++;
+                break;
+            }
+        }
+    }
+    console.log(br);
+}
+sadrzeA2(imena);
+
+
+
+// Odrediti broj elemenata u nizu stringova koji počinju na slovo 'a' ili 'A’. 
+
+let pocinjeNaA = niz => {
+    let br = 0;
+    for (let i = 0; i < niz.length; i++) {
+        if (niz[i][0] == 'A' || niz[i][0] == 'a') {
+            br++;
+        }
+    }
+    console.log(br);
+}
+pocinjeNaA(imena);
+
+// 2 nacin
+
+let pocinjeNaA2 = niz => {
+    let br = 0;
+    for (let i = 0; i < niz.length; i++) {
+        if (niz[i].startsWith('a') || niz[i].startsWith('A')) {
+            br++;
+        }
+    }
+    console.log(br);
+}
+pocinjeNaA2(imena);
+
+brojevi1 = [1, 2, 3, 4, 5, 6]
+brojevi2 = [7, 8, 9, 10, 11, 12]
+
+// Zadatak 24
+
+let zad24a = (a, b) => {
+    let n = a.length; // n = b.length
+    let c = [];
+    for (let i = 0; i < n; i++) {
+        c.push(a[i], b[i]); 
+    }
+    return c;
+}
+console.log(zad24a(brojevi1, brojevi2));
+
+
+
+// Zadatak 25
+
+let zad25 = (a, b) => {
+    let c = [];
+    for (let i = 0; i < a.length; i++) {
+        c.push(a[i] * b[i]);
+    }
+    return c;
+}
+console.log(zad25(brojevi1, brojevi2));
+
+
+
+// Zadatak 26
+
+let zad26 = a => {
+    let n = a.length;
+    let b = [];
+    for(let i = 0; i < n; i++) {
+        let s = 2 * n - 1 - a[i];
+        b.push((a[i] + s) / 2);
+    }
+    return b;
+}
+console.log(zad26(brojevi1));
