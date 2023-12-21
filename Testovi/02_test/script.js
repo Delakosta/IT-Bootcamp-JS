@@ -2,20 +2,24 @@
 
 let proracunBmi = (t, v) => {
     let bmi = t / (v / 100) ** 2;
-    if (bmi <= 18.5) {
+    return bmi;
+}
+
+let ispisBmi = (t, v) => {
+    if (proracunBmi(t, v) <= 18.5) {
         console.log(`Pothranjenost`)
     }
-    else if (bmi > 18.5 || bmi < 24.9) {
+    else if (proracunBmi(t, v) > 18.5 && proracunBmi(t, v) < 24.9) {
         console.log(`Normalna težina`)
     }
-    else if (bmi >= 24.9 || bmi <= 30) {
+    else if (proracunBmi(t, v) >= 24.9 && proracunBmi(t, v) <= 30) {
         console.log(`Povišena težina`)
     }
     else {
         console.log(`Gojaznost`)
     }
 }
-proracunBmi(100, 182);
+ispisBmi(80, 182);
 
 
 
@@ -35,9 +39,9 @@ let nutricionista = (t, zt) => {
             ned++;
         }
     }
-    console.log(`Potrebno je ${ned} nedelja`);
+    return ned;
 }
-nutricionista(70, 63);
+console.log(`Potrebno je ${nutricionista(70, 63)} nedelja.`);
 
 
 
@@ -60,10 +64,9 @@ prosecnaTezina = niz => {
         suma += niz[i];
         br++;
     }
-    let rezultat = (suma - minVr - maxVr) / br;
-    console.log(`Rezultat je: ${rezultat}`);
+    return (suma - minVr - maxVr) / br;
 }
-prosecnaTezina(tezine);
+console.log(`Rezultat je: ${prosecnaTezina(tezine)}`);
 
 
 
@@ -100,3 +103,28 @@ let napredak = niz => {
     }
 }
 console.log(napredak(tezineKlijenata));
+
+
+
+// Zadatak 5
+
+let pribliznaTezina = niz => {
+    let br = 0;
+    for ( let i = 0; i < niz.length; i++) {
+        if (nutricionista(niz[i], s1(niz)) <= 1) {
+            br++;
+        }
+    }
+    return br;
+}
+
+let ispisPribliznaTezina = niz => {
+    if (pribliznaTezina(niz) > niz.length / 3) {
+        document.write(`<p style= "color: green">Svi klijenti su priblizno iste tezine.</p>`);
+    }
+    else {
+        document.write(`<p style= "color: red">Nisu svi klijenti su priblizno iste tezine.</p>`);
+    }
+}
+
+ispisPribliznaTezina(tezineKlijenata);
