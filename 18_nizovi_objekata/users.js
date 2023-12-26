@@ -185,20 +185,6 @@ let dani = [dan1, dan2, dan3];
 // Zadatak 2 - Napraviti arrow funksiju koja ispisuje datum u kome je najviše puta izmerena temperatura. Ukoliko ima više takvih datuma:
 // Ispisati prvi od njih
 // Ispisati poslednji od njih
-/*
-let najviseIzmerena = niz => {
-    if (dan1.temperature.length > dan2.temperature.length) {
-        console.log(dan1.datum);
-    }
-    else if (dan1.temperature.length < dan2.temperature.length) {
-        console.log(dan2.datum);
-    }
-    else {
-        console.log(dan3.datum);
-    }
-};
-najviseIzmerena(dani);
-*/
 
 let maxBrMerenja = dani[0].temperature.length;
 
@@ -218,7 +204,19 @@ dani.forEach(d => {
 
 // Ispisati prvi od njih
 
-
+for (let i = 0; i < dani.length; i++) {
+    if (dani[i].temperature.length == maxBrMerenja) {
+        console.log(dani[i].datum);
+        break;
+    }
+};
 
 
 // Ispisati poslednji od njih
+
+for (let i = dani.length - 1; i >= 0; i--) {
+    if (dani[i].temperature.length == maxBrMerenja) {
+        console.log(dani[i].datum);
+        break;
+    }
+};
