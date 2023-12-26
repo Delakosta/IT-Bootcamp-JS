@@ -220,3 +220,60 @@ for (let i = dani.length - 1; i >= 0; i--) {
         break;
     }
 };
+
+
+// Zadatak 3 -  Napraviti arrow funksiju koja prebrojava i ispisuje koliko je bilo kišnih dana, koliko je bilo sunčanih dana i koliko je bilo oblačnih dana
+
+let brDana = niz => {
+    let kisa = 0;
+    let sunce = 0;
+    let oblaci = 0;
+    niz.forEach(d => {
+        if (d.kisa) {
+            kisa++;
+        }
+        if (d.sunce) {
+            sunce++;
+        }
+        if (d.oblacno) {
+            oblaci++;
+        }
+    });
+    console.log(`Kisnih dana je bilo ${kisa}, suncanih ${sunce}, a oblacnih ${oblaci}`);
+};
+brDana(dani);
+
+// Zadatak 4 - Napraviti arrow funkciju koja računa i vraća koliko je bilo dana sa natprosečnom temperaturom
+
+let natprosecnaUkupno = niz => {
+    let suma = 0;
+    let brMerenja = 0;
+    niz.forEach(d => {
+        d.temperature.forEach (t => {
+            suma += t;
+            brMerenja++;
+        });
+    });
+    let rezultat = suma / brMerenja;
+    return rezultat;
+}
+console.log(natprosecnaUkupno(dani));
+
+let natprosecnaDan = niz => {
+    let br = 0;
+    let natprosecnaUkupnoS = natprosecnaUkupno(niz);
+    niz.forEach(d => {
+        let suma = 0;
+        let brMerenja = 0;
+        d.temperature.forEach(t => {
+            suma += t;
+            brMerenja++;
+        });
+        let rezultat = suma / brMerenja;
+        if (rezultat > natprosecnaUkupnoS) {
+            br++;
+        }
+    });
+    return br;
+};
+console.log(natprosecnaDan(dani));
