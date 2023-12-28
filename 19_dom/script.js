@@ -88,3 +88,5 @@ link2.href = "https://www.google.com";
 //link2.setAttribute("href", "https://www.google.com");
 
 
+console.log(e1.parentNode);
+console.log(e1.childNodes);

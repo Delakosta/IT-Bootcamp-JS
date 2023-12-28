@@ -15,9 +15,11 @@ divovi.forEach(d => {
 // 3
 
 let n = paragrafi.length;
+let k = 1;
 
 for (let i = 0; i < n; i++) {
-    paragrafi[i].innerHTML += i ** 2;
+    paragrafi[i].innerHTML += k ** 2;
+    k++;
 };
 
 // 4
@@ -37,7 +39,7 @@ paragrafi.forEach(p => {
 // 6
 
 for (let i = 0; i < paragrafi.length; i++) {
-    if (i % 2 == 0) {
+    if (i % 2 == 1) {
         paragrafi[i].style.backgroundColor = "green";
     }
     else {
@@ -52,7 +54,7 @@ link.forEach((link, i) => {
     link.style.padding = "5px";
     link.style.fontSize = "8px"
     link.style.textDecoration = "none";
-    if (i % 2 == 0) {
+    if (i % 2 == 1) {
         link.style.color = "purple";
         link.style.backgroundColor = "green";
     }
