@@ -55,3 +55,74 @@ btnIspisiTekst.addEventListener('click', () => {
     let preuzmiTekst = inputTekst.value;
     pIspisTeksta.innerHTML = `Zdravo ${preuzmiTekst}`;
 });
+
+
+// Zadatak 6 - Dopuniti 5. zadatak dodavanjem radio button polja gde korisnik može odabrati svoj pol (muški, ženski ili neopredeljen). 
+// Nakon duplog klika na dugme, u konzoli ispisati pol koji je osoba odabrala.
+
+let radioMuski = document.getElementById('muski');
+let radioZenski = document.getElementById('zenski');
+let radioNeopredeljen = document.getElementById('neopredeljen');
+
+btnIspisiTekst.addEventListener('dblclick', () => {
+    if (radioMuski.checked) {
+        console.log(`Osoba muskog pola`);
+    }
+    else if (radioZenski.checked) {
+        console.log(`Osoba zenskog pola`);
+    }
+    else {
+        console.log(`Osoba se nije opredelila`);
+    }
+    // 2 nacin
+    let checkedPol = document.querySelector('input[name ="pol"]:checked');
+    console.log(checkedPol.value);
+    // 3 nacin
+    let polradios = document.getElementsByName('pol');
+    polradios.forEach(p => {
+        if (p.checked) {
+            console.log(p.value);
+        }
+    });
+    // 4 nacin
+    let polRadiosInput = document.querySelectorAll('input[name= "pol"]');
+    polRadiosInput.forEach(p => {
+        if (p.checked) {
+            console.log(p.value);
+        }
+    });
+});
+
+
+
+// Zadatak 7 - Napraviti sledeću formu i rezultat računanja ispisati u paragrafu ispod nje.
+
+
+let btnKvadriraj = document.getElementById('kvadriraj');
+let rezKvadriraj = document.getElementById('rezKvadriraj');
+let inpKvadriraj = document.getElementById('kvadrat');
+
+btnKvadriraj.addEventListener('click', () => {
+    let s = inpKvadriraj.value;
+    rezKvadriraj.innerHTML = `Rezultat je: ${s ** 2}`;
+});
+
+
+let btnPrepolovi = document.getElementById('prepolovi');
+let rezPrepolovi = document.getElementById('rezPrepolovi');
+let inpPrepolovi = document.getElementById('polovina');
+
+btnPrepolovi.addEventListener('click', () => {
+    let s = inpPrepolovi.value;
+    rezPrepolovi.innerHTML = `Rezultat je: ${s / 2}`;
+});
+
+
+let btnIzracunaj = document.getElementById('izracunaj');
+let rezIzracunaj = document.getElementById('rezIzracunaj');
+let inpIzracunaj = document.getElementById('povrsina');
+
+btnIzracunaj.addEventListener('click', () => {
+    let s = inpIzracunaj.value;
+    rezIzracunaj.innerHTML = `Rezultat je: ${s ** 2 * 3.1415}`;
+});
