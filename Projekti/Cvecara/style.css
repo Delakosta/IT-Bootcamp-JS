@@ -3,9 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-fieldset {
-    border: none;
-}
 body {
     background-image: url("img/pozadinaBody.jpg");
     background-position: center center;
@@ -15,11 +12,14 @@ body {
     font-size: large;
     margin-top: 3%;
 }
+fieldset {
+    border: none;
+}
 #porudzbina {
     display: none;
 }
 section {
-    background-color: rgba(245,245,245,0.9);
+    background-color: rgba(245,245,245,0.8);
     width: 60%;
     position: relative;
     left: 50%;
@@ -50,7 +50,7 @@ li {
     border: 3px solid black;
 }
 form, div {
-    margin-left: 5%;
+    margin-left: 6%;
 }
 h2 {
     font-size: x-large;
@@ -70,7 +70,7 @@ button {
     background-color: whitesmoke;
 }
 button:hover {
-    background-color: lightgray;
+    background-color: silver;
 }
 @media only screen and (max-width: 600px) {
     body {
@@ -79,13 +79,13 @@ button:hover {
     }
     section {
         background-color: whitesmoke;
-        width: 90%;
-        margin-left: -45%;
+        width: 96%;
+        margin-left: -48%;
         }
 }
 @media only screen and (min-width: 601px) and (max-width: 1200px) {
     section {
-        width: 80%;
-        margin-left: -40%;
+        width: 86%;
+        margin-left: -43%;
         }
 }

@@ -57,6 +57,7 @@ btnIzracunaj.addEventListener(`click`, () => {
         kontGerberi.innerHTML = gerberi;
         kontDodatno.innerHTML = poklon;
         kontCena.innerHTML = cena;
+        porudzbina.scrollIntoView();
     }
     else {
         alert(`Morate odabrati minimum jedan cvet`);

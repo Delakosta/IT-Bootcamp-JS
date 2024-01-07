@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url("img/pozadinaBody.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    margin-top: 1%;
+}
+#naslov {
+    background-image: url("img/pozadinaNaslov.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-attachment: local;
+    padding: 10%;
+    border: 4px solid black;
+    border-radius: 10px;
+}
+h1 {
+    margin-left: -13%;
+    color: whitesmoke;
+    width: 60%;
+    padding: 1%;
+}
+h1:last-of-type {
+    border-top: 1px solid whitesmoke;
+}
+form, div {
+    width: 60%;
+    position: relative;
+    left: 50%;
+    margin-left: -30%;
+}
+img {
+    width: 22px;
+    margin-right: 2%;
+    margin-bottom: -4px;
+}
+label {
+    margin-left: 1%;
+}
+fieldset, #kont {
+    background-color: rgba(245,245,245,0.8);
+    padding: 2%;
+    margin-top: 1%;
+    border: 10px double black;
+    border-radius: 15px;
+}
+#kont {
+    display: none;
+    border: 4px solid black;
+}
+fieldset h3, p {
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+button {
+    padding: 15px;
+    font-weight: bold;
+    margin: 2% 2% 2% 2%;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: whitesmoke;
+}
+button:hover {
+    background-color: silver;
+}
+@media only screen and (max-width: 600px) {
+    body {
+        background-image: none;
+        background-color: rgb(30,30,30);
+    }
+    form, div {
+        width: 96%;
+        margin-left: -48%;
+        }
+    #naslov {
+        background-image: none;
+        background: linear-gradient(120deg, rgba(0,0,0,1) 0%, rgba(59,59,59,1) 100%);
+    }
+}
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+    form, div {
+        width: 86%;
+        margin-left: -43%;
+        }
+}
