@@ -1,8 +1,10 @@
 class Film {
-    constructor (n, r, g) {
+    constructor (n, r, g, o) {
     this.naslov = n;
     this.reziser = r;
     this.godinaIzdanja = g;
+    // seter za niz ocena
+    this.ocene = o;
     }
     // Seteri - daju vrednost polja
     set naslov(n) {
@@ -19,6 +21,14 @@ class Film {
             this._godinaIzdanja = g;
         }
     }
+    set ocene(o) {
+        for (let i = 0; i < o.length; i++) {
+            if (o[i] < 5 || o[i] > 10 || o[i] != Math.ceil(o[i])) {
+                o[i] = 5;
+            }
+        }
+        this._ocene = o;
+    }
     // Geteri - vraca vrednost polja
     get naslov() {
         return this._naslov;
@@ -29,8 +39,18 @@ class Film {
     get godinaIzdanja() {
         return this._godinaIzdanja;
     }
+    get ocene() {
+        return this._ocene;
+    }
     stampaj() {
         console.log(`Naslov: ${this.naslov}`);
+    }
+    prosecna() {
+        let suma = 0;
+        this.ocene.forEach(ocena => {
+            suma += ocena;
+        });
+        return suma / this.ocene.length;
     }
 }
 
