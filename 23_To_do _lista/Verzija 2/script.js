@@ -6,7 +6,7 @@ let ulZadaci = document.querySelector('ul');
 let btnKraj = document.getElementById('r2');
 
 
-ulZadaci.addEventListener('click', (e) => {
+ulZadaci.addEventListener('click    ', (e) => {
     if (e.target.tagName == "LI") {
         //e.target.classList.toggle('precrtaj');
         e.target.remove();
