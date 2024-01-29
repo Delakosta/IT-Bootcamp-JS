@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form>
+        <fieldset>
+            <input type="text" id="user">
+            <input type="button" id="start" value="Start">
+        </fieldset>
+        <fieldset>
+            <input type="radio" name="diff" value="easy" id="easy" checked><label for="easy">Easy</label>
+            <input type="radio" name="diff" value="normal" id="normal"><label for="normal">Normal</label>
+            <input type="radio" name="diff" value="hard" id="hard"><label for="hard">Hard</label>
+            <input type="radio" name="diff" value="expert" id="expert"><label for="expert">Expert</label>
+        </fieldset>
+    </form>
+    <div id="play"></div>
+    <script src="script.js" type="module"></script>
+</body>
+</html>
