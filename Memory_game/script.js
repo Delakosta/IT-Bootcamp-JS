@@ -1,15 +1,19 @@
 import generateDeck from "./cardDeck.js";
 
-const playSection = document.getElementById("playSection");
+const playSection = document.getElementById("play");
+
 
 
 let displayDeck = () => {
-    let deck = generateDeck("expert");
+    let deck = generateDeck("easy");
     deck.forEach(card => {
-        let img = document.createElement("img");
-        img.src = card.cardImage;
-        img.alt = "Card";
-        play.appendChild(img);
+        let cardHolder = document.createElement("div");
+        cardHolder.style.backgroundImage = `url(${card.cardImage})`;
+        let cardMask = document.createElement("img");
+        cardMask.src = "img/rosa-shield.png";
+        cardMask.className = card.cardIndex;
+        cardHolder.appendChild(cardMask);
+        playSection.appendChild(cardHolder);
     });
 }
 
