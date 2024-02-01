@@ -1,7 +1,8 @@
 class Card {
-    constructor(img, ind) {
-        this.cardImage = img;
-        this.cardIndex = ind;
+    constructor(path, index) {
+        this.cardFront = path;
+        this.cardBack = "img/rosa-shield.png";
+        this.cardIndex = index;
     }
 }
 
