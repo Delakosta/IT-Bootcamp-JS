@@ -1,6 +1,6 @@
 class Card {
     constructor(path, index) {
-        this.cardFront = path;
+        this.cardFace = path;  // Change to cardFace
         this.cardBack = "img/rosa-shield.png";
         this.cardIndex = index;
     }

@@ -4,8 +4,50 @@
     box-sizing: border-box;
 }
 
-img {
-    width: 80px;
-    height: 80px;
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
 }
 
+#gameBoard {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.holder {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.holder img {
+    width: 100%;
+    height: 100%;
+    border: 2px solid darkgray;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.5s ease;
+}
+
+.holder .front {
+    transform: rotateY(180deg);
+}
+
+.holder .back {
+    transform: rotateY(0deg);
+}
+
+.holder.revealed {
+    transform: rotateY(180deg);
+}
+    
