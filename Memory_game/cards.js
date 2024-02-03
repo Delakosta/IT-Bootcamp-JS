@@ -1,6 +1,6 @@
 class Card {
     constructor(path, index) {
-        this.cardFace = path;  // Change to cardFace
+        this.cardFace = path;
         this.cardBack = "img/rosa-shield.png";
         this.cardIndex = index;
     }
@@ -63,7 +63,7 @@ const cardStack = [card1, card2, card3, card4, card5, card6, card7, card8, card9
      card31, card32, card33, card34, card35, card36, card37, card38, card39, card40,
      card41, card42, card43, card44, card45, card46, card47, card48, card49, card50];
 
-const generateDeck = diff => {
+const generate = diff => {
     let cards = 0;
     let deck = [];
     let shuffeldDeck = [];
@@ -89,4 +89,4 @@ const generateDeck = diff => {
     return shuffeldDeck;
 };
 
-export default generateDeck;
+export default generate;
