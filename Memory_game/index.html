@@ -21,11 +21,20 @@
         </fieldset>
     </form>
     <section id="gameBoard"></section>
-    <section id="resultBoard">
-        <div id="easyBoard"></div>
-        <div id="normalBoard"></div>
-        <div id="hardBoard"></div>
-        <div id="expertBoard"></div>
+    <section">
+        <div id="buttons">
+            <button type="button" id="btnEasy">Easy</button>
+            <button type="button" id="btnNormal">Normal</button>
+            <button type="button" id="btnHard">Hard</button>
+            <button type="button" id="btnExpert">Expert</button>
+        </div>
+        <table id="resultBoard">
+            <tr>
+                <th>Place</th>
+                <th>Username</th>
+                <th>Time</th>
+            </tr>
+        </table>
     </section>
     <script src="script.js" type="module"></script>
 </body>

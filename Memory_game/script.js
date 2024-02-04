@@ -1,15 +1,18 @@
 import generate from "./cards.js";
 
+const resultsBtns = document.getElementById('buttons');
 const btnStart = document.getElementById('start');
 const gameBoard = document.getElementById("gameBoard");
 const timerBlock = document.getElementById('timer');
 let user = document.getElementById('user');
+let resultBoard = document.getElementById('resultBoard');
 
 let deck = [];
 let timer = null;
+let difficulty = undefined;
 
 btnStart.addEventListener("click", () => {
-    const difficulty = document.querySelector('input[name="diff"]:checked').value;
+    difficulty = document.querySelector('input[name="diff"]:checked').value;
     deck = generate(difficulty);
     if (user.value.trim() != "") {
         btnStart.style.display = "none";
@@ -21,6 +24,21 @@ btnStart.addEventListener("click", () => {
     }
     else {
         alert("Enter username!");
+    }
+});
+
+resultsBtns.addEventListener('click', (e) => {
+    if (e.target.id === "btnEasy") {
+        results("easy");
+    }
+    else if (e.target.id === "btnNormal") {
+        results("normal");
+    }
+    else if (e.target.id === "btnHard") {
+        results("hard");
+    }
+    else {
+        results("expert");
     }
 });
 
@@ -84,15 +102,24 @@ const play = () => {
                     matchedPairs++;
                     if (matchedPairs === deck.length / 2) {
                         setTimeout(() => {
-                            alert("Congratulations! You won!");
+                            let previousResults = JSON.parse(localStorage.getItem(`mg${difficulty}`));
                             let result = {
-                                user: user.value,
-                                time: timerBlock.textContent
+                                name: user.value,
+                                time: Number(timerBlock.textContent)
                             }
-                            localStorage.setItem("name", JSON.stringify(result));
+                            if (previousResults === null) {
+                                localStorage.setItem(`mg${difficulty}`, JSON.stringify([result]));
+                            }
+                            else {
+                                previousResults.push(result);
+                                localStorage.setItem(`mg${difficulty}`, JSON.stringify(previousResults));
+                            }
                             clearInterval(timer);
-                            gameBoard.removeEventListener('click');
-                        }, 1000)
+                            if (confirm("Congratulations! You won! Whould you like to start a new game?")) {
+                                window.location.reload();
+                              }
+                        }, 1000);
+
                     }
                 } else {
                     // Flip the cards back after a delay if they don't match
@@ -111,3 +138,28 @@ const play = () => {
         }
     });
 };
+
+
+const results = diff => {
+    let rawResults = JSON.parse(localStorage.getItem(`mg${diff}`));
+    if (rawResults === null) {
+        resultBoard.innerHTML = "No score at this difficulty!";
+        return;
+    }
+    let sortedResults = rawResults.sort((a, b) => a.time - b.time);
+
+        // Clear existing rows in the result board
+        resultBoard.innerHTML = "";
+
+    for (let i = 0; i < Math.min(sortedResults.length, 5); i++) {
+        let tableRow = document.createElement('tr');
+        let tableRowData1 = document.createElement('td');
+        tableRowData1.textContent = i + 1;
+        let tableRowData2 = document.createElement('td');
+        tableRowData2.textContent = sortedResults[i].name;
+        let tableRowData3 = document.createElement('td');
+        tableRowData3.textContent = sortedResults[i].time;
+        resultBoard.appendChild(tableRow);
+        tableRow.append(tableRowData1, tableRowData2, tableRowData3);
+    }
+}
