@@ -4,32 +4,81 @@
     box-sizing: border-box;
 }
 
+body {
+    text-align: center;
+}   
+
 h1, h3 {
     color: purple;
+    text-align: center;
+    margin-top: 15px;
 }
 
 .inp {
-    width: 200px;
+    width: 20%;
+    min-width: 150px;
     padding-top: 3px;
-    padding-bottom: 3px;
+    padding-bottom:3px;
+    margin-top: 15px;
 }
 
 button {
     background-color: purple;
-    padding: 5px 55px 5px 55px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     color: white;
-    width: 200px;
+    width: 190px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+button:hover, #btnSend:hover, #btnUpdate:hover {
+    background-color: rgb(77, 0, 77);
+    color: blanchedalmond;
+}
+button:focus {
+    background-color: rgb(77, 0, 77);
+    color: blanchedalmond;
 }
 
 section {
-    height: 300px;
-    width: 800px;
+    height: 400px;
+    width: 40%;
+    background-image: url("img/chatBackground.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-attachment: local;
+    position: relative;
+    left: 50%;
+    margin-left: -20%;
+    margin-top: 15px;
+    border: 1px solid purple;
+    border-radius: 15px;
 }
 
 #btnSend, #btnUpdate {
-    padding-top: 3px;
-    padding-bottom: 3px;
-    width: 150px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 10%;
+    min-width: 70px;
     background-color: purple;
     color: white;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+    section {
+        width: 90%;
+        left: 50%;
+        margin-left: -45%;
+    }
+
+}
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+    section {
+        width: 70%;
+        left: 50%;
+        margin-left: -35%;
+    }
 }

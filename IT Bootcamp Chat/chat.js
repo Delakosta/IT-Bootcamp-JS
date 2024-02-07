@@ -1,5 +1,3 @@
-let datum = new Date();
-
 class Chatroom {
     constructor(r, u) {
         this.room = r;
@@ -13,7 +11,7 @@ class Chatroom {
         return this._room;
     }
     set username(u) {
-        if (u.length >= 2 && u.length <= 10 && u.trim() != " ") {
+        if (u.length > 2 && u.length < 10 && u.trim() != " ") {
             this._username = u;
         }
         else {
@@ -29,7 +27,7 @@ class Chatroom {
             message: message,
             username: this.username,
             room: this.room,
-            created_at: firebase.firestore.Timestamp.fromDate(datum),
+            created_at: firebase.firestore.Timestamp.fromDate(new Date()),
         })
         .then(() => {
             console.log("Uspesno dodat chat");
@@ -37,17 +35,6 @@ class Chatroom {
         .catch((e) => {
             console.log(`Greska: ${e}`);
         });
-    }
-    async addChat2(msg) {
-        // Kreiranje dokumenta koje zelimo da upisemo u bazu
-        let docChat = {
-            message: msg,
-            username: this.username,
-            room: this.room,
-            created_at: new Date()
-        }
-        let response = await this.chats.add(docChat) // pamti odc u bazi
-        return response // vraca promis, na koji moze da se zakaci .then i .catch
     }
     getChats(callback) {
         this.chats
@@ -61,12 +48,17 @@ class Chatroom {
                 });
             });
     }
+    updateUsername(newUsername) {
+        this.username = newUsername;
+    }
+    updateRoom(newRoom) {
+        this.room = newRoom;
+    }
 }
 
 let korisnik1 = new Chatroom ('#general', 'milos123')
 let korisnik2 = new Chatroom ('#js', 'buki')
 let korisnik3 = new Chatroom ('#homework', 'pedja')
 
-korisnik1.getChats(data => {
-    console.log(data);
-});
+korisnik1.updateRoom('M');
+console.log(korisnik1); 
