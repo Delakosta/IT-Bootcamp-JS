@@ -42,9 +42,7 @@ class Chatroom {
         .orderBy('created_at')
         .onSnapshot(snapshot => {
                 snapshot.docChanges().forEach(change => {
-                    if (change.type == 'added') {
                         callback(change.doc.data());
-                    }
                 });
             });
     }
@@ -56,9 +54,4 @@ class Chatroom {
     }
 }
 
-let korisnik1 = new Chatroom ('#general', 'milos123')
-let korisnik2 = new Chatroom ('#js', 'buki')
-let korisnik3 = new Chatroom ('#homework', 'pedja')
-
-korisnik1.updateRoom('M');
-console.log(korisnik1); 
+export default Chatroom;
