@@ -1,24 +1,83 @@
 import Chatroom from "./chat.js";
 import ChatUI from "./ui.js";
 
+let username = JSON.parse(localStorage.getItem('username'));
+if (username === null) {
+    username = "Anonymus";
+}
+
+let room = JSON.parse(localStorage.getItem('room'));
+if (room === null) {
+    room = "#general";
+}
+
+// DOM
 let ul = document.querySelector("section ul");
+let btnUpdate = document.getElementById('btnUpdate');
+let btdSend = document.getElementById('btnSend');
+let inpUser = document.getElementById('inpUser');
+let inpChange = document.getElementById('inpChange');
+let btnNav = document.querySelector('nav');
 
-let chatroom1 = new Chatroom("#js", "Stefan");
-console.log(chatroom1.username, chatroom1.room); // Testiram getere
-chatroom1.username = "Milena"; // Testiram seter za username
-console.log(chatroom1.username);
-chatroom1.room = "#general"; // Testiram seter za room
-console.log(chatroom1.room);
-console.log(chatroom1.chats);
+// Objekti
+let chatroom = new Chatroom(room, username);
+let chatui =  new ChatUI(ul);
 
-let chatroom2 = new Chatroom("#general", " Miki");
-
+// Prikaz poruka na stranici
+chatroom.getChats(data => {
+    chatui.list.appendChild(chatui.templateLi(data));
+});
 
 
-let chatUI1 =  new ChatUI(ul);
+btdSend.addEventListener('click', () => {
+    if (inpUser.value.trim() != "") {
+        chatroom.addChat(inpUser.value);
+    }
+    else {
+        alert("Empty message!")
+    }
+    inpUser.value = "";
+});
 
+btnUpdate.addEventListener('click', () => {
+    let newUsername = inpChange.value;
+    if (chatroom.username === newUsername) {
+        alert(`Same username!`)
+    }
+    else {
+        chatroom.username = newUsername;
+        let usrNameMsg = document.createElement('span');
+        usrNameMsg.textContent = `Username changed to: ${newUsername}`;
+        localStorage.setItem('username', JSON.stringify(newUsername));
+        ul.appendChild(usrNameMsg);
+        setTimeout(() => {
+            usrNameMsg.textContent = "";
+            }, 3000);
+    }
+    inpChange.value = "";
+});
 
-//chatroom2.addChat("Tralala");
-chatroom2.getChats(data => {
-    chatUI1.list.appendChild(chatUI1.templateLi(data));
+btnNav.addEventListener('click', (e) => {
+    if (e.target.name === 'room') {
+        if (e.target.id === 'general') {
+            chatui.clear();
+            chatroom.room = "#general";
+        }
+        else if (e.target.id === 'js') {
+            chatui.clear();
+            chatroom.room = "#js";
+        }
+        else if (e.target.id === 'homeworks') {
+            chatui.clear();
+            chatroom.room = "#homeworks";
+        }
+        else if (e.target.id === 'tests') {
+            chatui.clear();
+            chatroom.room = "#tests";
+        }
+        localStorage.setItem('room', JSON.stringify(chatroom.room));
+        chatroom.getChats(data => {
+            chatui.list.appendChild(chatui.templateLi(data));
+        });
+    }
 });

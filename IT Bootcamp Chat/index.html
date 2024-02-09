@@ -12,19 +12,20 @@
         <h3>Choose a chatroom</h3>
     </header>
     <nav>
-        <button type="button">#general</button>
-        <button type="button">#js</button>
-        <button type="button">#homeworks</button>
-        <button type="button">#tests</button>
+        <button type="button" name="room" id="general">#general</button>
+        <button type="button" name="room" id="js">#js</button>
+        <button type="button" name="room" id="homeworks">#homeworks</button>
+        <button type="button" name="room" id="tests">#tests</button>
     </nav>
     <section>
         <ul></ul>
     </section>
     <form>
-        <input type="text"  placeholder="Your message..." class="inp">
+        <textarea rows="1" cols="30" placeholder="Your message..." class="inp" id="inpUser"></textarea>
+        <!--input type="text"  placeholder="Your message..." class="inp" id="inpUser"-->
         <input type="button" value="Send" id="btnSend">
         <br>
-        <input type="text"  placeholder="Update username" class="inp">
+        <input type="text"  placeholder="Update username" class="inp" id="inpChange">
         <input type="button" value="Update" id="btnUpdate">
     </form>
     <!-- The core Firebase JS SDK is always required and must be listed first -->

@@ -3,19 +3,23 @@ class Chatroom {
         this.room = r;
         this.username = u;
         this.chats = db.collection('chats');
+        this.unsub = false;
     }
     set room(r) {
         this._room = r;
+        if (this.unsub) {
+            this.unsub();
+        }
     }
     get room () {
         return this._room;
     }
     set username(u) {
-        if (u.length > 2 && u.length < 10 && u.trim() != " ") {
+        if (u.length > 2 && u.length < 10 && u.trim() != "") {
             this._username = u;
         }
         else {
-            alert("Korisnicko ime mora biti izmedju 2 i 10 karaktera!")
+            alert("Korisnicko ime mora biti izmedju 2 i 10 karaktera!");
         }
     }
     get username() {
@@ -37,12 +41,14 @@ class Chatroom {
         });
     }
     getChats(callback) {
-        this.chats
+        this.unsub = this.chats
         .where('room', '==', this.room)
         .orderBy('created_at')
         .onSnapshot(snapshot => {
                 snapshot.docChanges().forEach(change => {
+                    if (change.type == 'added') {
                         callback(change.doc.data());
+                    }
                 });
             });
     }
