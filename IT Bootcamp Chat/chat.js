@@ -15,12 +15,7 @@ class Chatroom {
         return this._room;
     }
     set username(u) {
-        if (u.length > 2 && u.length < 10 && u.trim() != "") {
-            this._username = u;
-        }
-        else {
-            alert("Korisnicko ime mora biti izmedju 2 i 10 karaktera!");
-        }
+        this._username = u;
     }
     get username() {
         return this._username;
@@ -48,6 +43,7 @@ class Chatroom {
                 snapshot.docChanges().forEach(change => {
                     if (change.type == 'added') {
                         callback(change.doc.data());
+                        document.querySelector('li:last-of-type').scrollIntoView();
                     }
                 });
             });

@@ -71,7 +71,10 @@ button:focus {
 section {
     height: 400px;
     width: 40%;
-    overflow: scroll;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: purple whitesmoke;
+    scroll-padding: auto;
     background-image: url("img/chatBackground.jpg");
     background-position: center center;
     background-size: cover;
@@ -81,7 +84,6 @@ section {
     margin-left: -20%;
     margin-top: 15px;
     border: 1px solid purple;
-    border-radius: 15px;
 }
 
 #btnSend, #btnUpdate {

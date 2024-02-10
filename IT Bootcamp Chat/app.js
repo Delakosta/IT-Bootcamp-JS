@@ -42,7 +42,10 @@ btdSend.addEventListener('click', () => {
 btnUpdate.addEventListener('click', () => {
     let newUsername = inpChange.value;
     if (chatroom.username === newUsername) {
-        alert(`Same username!`)
+        alert(`Same username!`);
+    }
+    else if (newUsername.length < 3 || newUsername.length > 10 || newUsername.trim() == "") {
+        alert("Username must be between 3 and 10 characters long!");
     }
     else {
         chatroom.username = newUsername;
