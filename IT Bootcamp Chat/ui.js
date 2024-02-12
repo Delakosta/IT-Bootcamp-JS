@@ -37,8 +37,10 @@ class ChatUI {
         let hour = String(date.getHours()).padStart(2, "0");
         let min = String(date.getMinutes()).padStart(2, "0");
         let formatedDate = `${day}.${month}.${year}. - ${hour}:${min}`;
-        let formatedDateToday = `Today - ${hour}:${min}`;
-        if (currentDate.getDate() == date.getDate() && currentDate.getMonth() == date.getMonth() && currentDate.getFullYear() == date.getFullYear()) {
+        let formatedDateToday = `${hour}:${min}`;
+        if (currentDate.getDate() == date.getDate() &&
+            currentDate.getMonth() == date.getMonth() &&
+            currentDate.getFullYear() == date.getFullYear()) {
             return formatedDateToday;
         }
         else {

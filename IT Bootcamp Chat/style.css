@@ -49,14 +49,14 @@ li {
 .user {
     float: right;
     clear: both;
-    border-radius: 15px 15px 0px 15px;
+    border-radius: 25px 25px 5px 25px;
     background-color: rgb(220, 250, 220);
 }
 
 .other {
     float: left;
     clear: both;
-    border-radius: 15px 15px 15px 0px;
+    border-radius: 25px 25px 25px 5px;
     background-color: rgb(230, 230, 230);
 }
 
@@ -149,8 +149,8 @@ section {
 section, textarea {
     overflow: auto;
     scrollbar-width: thin;
-    scrollbar-color: midnightblue whitesmoke;
-    scroll-padding: auto;
+    scroll-behavior: smooth;
+    scrollbar-color: steelblue whitesmoke;
 }
 
 .actionBtn {

@@ -17,7 +17,7 @@ currentRoom.classList.add('pressed');
 let ul = document.querySelector('section ul');
 let msgDiv = document.querySelector('div');
 let btnUpdate = document.getElementById('btnUpdate');
-let btdSend = document.getElementById('btnSend');
+let btnSend = document.getElementById('btnSend');
 let btnSelectTheme = document.getElementById('btnSelectTheme');
 let inpUserMsg = document.getElementById('inpUserMsg');
 let inpChangeUser = document.getElementById('inpChangeUser');
@@ -45,7 +45,7 @@ function getChats() {
 };
 getChats();
 
-btdSend.addEventListener('click', () => {
+btnSend.addEventListener('click', () => {
     if (inpUserMsg.value.trim() != "") {
         chatroom.addChat(inpUserMsg.value);
     }
