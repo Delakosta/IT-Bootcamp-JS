@@ -91,10 +91,10 @@ span {
 }
 
 div span {
-    background-color: whitesmoke;
+    background-color: steelblue;
     padding: 5px;
     border-radius: 10px;
-    color: darkgrey;
+    color: whitesmoke;
 }
 
 .inp {
@@ -121,7 +121,7 @@ nav button {
     background-color: steelblue;
     padding-top: 7px;
     padding-bottom: 7px;
-    color: white;
+    color: whitesmoke;
     width: 24%;
     min-width: 150px;
     border-radius: 5px;
@@ -129,15 +129,17 @@ nav button {
 }
 
 button:hover, .actionBtn:hover {
-    background-color: midnightblue;
+    box-shadow: inset 0px 0px 20px midnightblue;
     color: whitesmoke;
     cursor: pointer;
 }
 
 .pressed {
-    background-color: midnightblue;
-    color: whitesmoke;
-    box-shadow: inset 0px 0px 5px steelblue;
+    box-shadow: inset 4px 4px 4px midnightblue;
+}
+
+.pressed:hover {
+    box-shadow: inset 4px 4px 4px midnightblue;
 }
 
 nav, section, form, header {
