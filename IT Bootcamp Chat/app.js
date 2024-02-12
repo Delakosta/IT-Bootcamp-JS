@@ -74,8 +74,8 @@ btnUpdate.addEventListener('click', () => {
         localStorage.setItem('username', JSON.stringify(newUsername));
         msgDiv.appendChild(usernameMsg);
         setTimeout(() => {
-            usernameMsg.textContent = "";
-            window.location.reload();
+            msgDiv.removeChild(usernameMsg);
+            getChats();
             }, 3000);
     }
     inpChangeUser.value = "";

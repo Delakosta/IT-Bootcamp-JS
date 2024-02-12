@@ -16,6 +16,9 @@ class Chatroom {
     }
     set username(u) {
         this._username = u;
+        if (this.unsub) {
+            this.unsub();
+        }
     }
     get username() {
         return this._username;
