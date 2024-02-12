@@ -1,6 +1,18 @@
 import Chatroom from "./chat.js";
 import ChatUI from "./ui.js";
 
+// DOM
+const ul = document.querySelector('section ul');
+const msgDiv = document.querySelector('div');
+const btnUpdate = document.getElementById('btnUpdate');
+const btnSend = document.getElementById('btnSend');
+const btnSelectTheme = document.getElementById('btnSelectTheme');
+const inpUserMsg = document.getElementById('inpUserMsg');
+const inpChangeUser = document.getElementById('inpChangeUser');
+const inpThemeColor = document.getElementById('inpThemeColor');
+const nav = document.querySelector('nav');
+const theme = document.querySelector('main');
+
 let username = JSON.parse(localStorage.getItem('username'));
 if (username === null) {
     username = "Anonymus";
@@ -13,30 +25,22 @@ if (room === null) {
 let currentRoom = document.getElementById(room);
 currentRoom.classList.add('pressed');
 
-// DOM
-let ul = document.querySelector('section ul');
-let msgDiv = document.querySelector('div');
-let btnUpdate = document.getElementById('btnUpdate');
-let btnSend = document.getElementById('btnSend');
-let btnSelectTheme = document.getElementById('btnSelectTheme');
-let inpUserMsg = document.getElementById('inpUserMsg');
-let inpChangeUser = document.getElementById('inpChangeUser');
-let inpThemeColor = document.getElementById('inpThemeColor');
-let nav = document.querySelector('nav');
-let theme = document.querySelector('main');
-
 
 let color = JSON.parse(localStorage.getItem('color'));
 if (color === null) {
-    color = "rgba(110,110,160,0.5)";
+    color = "#6E6EA080";
+    inpThemeColor.value = "#6E6EA0";
+}
+else {
+    inpThemeColor.value = color.slice(0, -2);
 }
 theme.style.backgroundColor = color;
 
-// Objekti
+// Objects
 let chatroom = new Chatroom(room, username);
 let chatui =  new ChatUI(ul);
 
-// Prikaz poruka na stranici
+// Display messages
 function getChats() {
     chatroom.getChats(data => {
         chatui.list.appendChild(chatui.templateLi(data, chatroom));

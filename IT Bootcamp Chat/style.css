@@ -68,6 +68,7 @@ img {
 img:hover {
     transform: scale(1.5);
     opacity: 0.7;
+    cursor: pointer;
 }
 
 div {
@@ -104,6 +105,10 @@ div span {
     margin-top: 15px;
 }
 
+#inpThemeColor:hover {
+    cursor: pointer;
+}
+
 textarea {
     margin-bottom: -9px;
     min-height: 26px;
@@ -126,12 +131,13 @@ nav button {
 button:hover, .actionBtn:hover {
     background-color: midnightblue;
     color: whitesmoke;
+    cursor: pointer;
 }
 
 .pressed {
     background-color: midnightblue;
-    opacity: 0.7;
-    color: whitesmoke;  
+    color: whitesmoke;
+    box-shadow: inset 0px 0px 5px steelblue;
 }
 
 nav, section, form, header {
