@@ -28,7 +28,7 @@ let theme = document.querySelector('main');
 
 let color = JSON.parse(localStorage.getItem('color'));
 if (color === null) {
-    color = "rgba(245,245,245,0.5)";
+    color = "rgba(110,110,160,0.5)";
 }
 theme.style.backgroundColor = color;
 

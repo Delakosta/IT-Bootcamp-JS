@@ -50,14 +50,14 @@ li {
     float: right;
     clear: both;
     border-radius: 15px 15px 0px 15px;
-    background-color: rgb(218, 243, 219);
+    background-color: rgb(220, 250, 220);
 }
 
 .other {
     float: left;
     clear: both;
     border-radius: 15px 15px 15px 0px;
-    background-color: whitesmoke;
+    background-color: rgb(230, 230, 230);
 }
 
 img {
@@ -107,8 +107,9 @@ div span {
 textarea {
     margin-bottom: -9px;
     min-height: 26px;
-    max-height: 400px;
+    max-height: 150px;
     max-width: 100%;
+    resize: vertical;
 }
 
 nav button {
