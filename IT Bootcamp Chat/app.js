@@ -10,77 +10,115 @@ let room = JSON.parse(localStorage.getItem('room'));
 if (room === null) {
     room = "#general";
 }
+let currentRoom = document.getElementById(room);
+currentRoom.classList.add('pressed');
 
 // DOM
-let ul = document.querySelector("section ul");
+let ul = document.querySelector('section ul');
+let msgDiv = document.querySelector('div');
 let btnUpdate = document.getElementById('btnUpdate');
 let btdSend = document.getElementById('btnSend');
-let inpUser = document.getElementById('inpUser');
-let inpChange = document.getElementById('inpChange');
-let btnNav = document.querySelector('nav');
+let btnSelectTheme = document.getElementById('btnSelectTheme');
+let inpUserMsg = document.getElementById('inpUserMsg');
+let inpChangeUser = document.getElementById('inpChangeUser');
+let inpThemeColor = document.getElementById('inpThemeColor');
+let nav = document.querySelector('nav');
+let theme = document.querySelector('main');
+
+
+let color = JSON.parse(localStorage.getItem('color'));
+if (color === null) {
+    color = "rgba(245,245,245,0.5)";
+}
+theme.style.backgroundColor = color;
 
 // Objekti
 let chatroom = new Chatroom(room, username);
 let chatui =  new ChatUI(ul);
 
 // Prikaz poruka na stranici
-chatroom.getChats(data => {
-    chatui.list.appendChild(chatui.templateLi(data));
-});
-
+function getChats() {
+    chatroom.getChats(data => {
+        chatui.list.appendChild(chatui.templateLi(data, chatroom));
+        document.querySelector('li:last-of-type').scrollIntoView();
+    });
+};
+getChats();
 
 btdSend.addEventListener('click', () => {
-    if (inpUser.value.trim() != "") {
-        chatroom.addChat(inpUser.value);
+    if (inpUserMsg.value.trim() != "") {
+        chatroom.addChat(inpUserMsg.value);
     }
     else {
-        alert("Empty message!")
+        alert("Empty message.")
     }
-    inpUser.value = "";
+    inpUserMsg.value = "";
 });
 
 btnUpdate.addEventListener('click', () => {
-    let newUsername = inpChange.value;
+    let newUsername = inpChangeUser.value;
     if (chatroom.username === newUsername) {
-        alert(`Same username!`);
+        alert(`Same username.`);
     }
     else if (newUsername.length < 3 || newUsername.length > 10 || newUsername.trim() == "") {
-        alert("Username must be between 3 and 10 characters long!");
+        alert("Username must be between 2 and 10 characters long.");
     }
     else {
         chatroom.username = newUsername;
-        let usrNameMsg = document.createElement('span');
-        usrNameMsg.textContent = `Username changed to: ${newUsername}`;
+        let usernameMsg = document.createElement('span');
+        usernameMsg.textContent = `Changing Username to: ${newUsername}`;
         localStorage.setItem('username', JSON.stringify(newUsername));
-        ul.appendChild(usrNameMsg);
+        msgDiv.appendChild(usernameMsg);
         setTimeout(() => {
-            usrNameMsg.textContent = "";
+            usernameMsg.textContent = "";
+            window.location.reload();
             }, 3000);
     }
-    inpChange.value = "";
+    inpChangeUser.value = "";
 });
 
-btnNav.addEventListener('click', (e) => {
+nav.addEventListener('click', (e) => {
     if (e.target.name === 'room') {
-        if (e.target.id === 'general') {
+        let buttons = document.getElementsByName('room');
+        buttons.forEach(button => button.classList.remove('pressed'));
+        e.target.classList.add('pressed');
+        if (e.target.id === '#general') {
             chatui.clear();
             chatroom.room = "#general";
         }
-        else if (e.target.id === 'js') {
+        else if (e.target.id === '#js') {
             chatui.clear();
             chatroom.room = "#js";
         }
-        else if (e.target.id === 'homeworks') {
+        else if (e.target.id === '#homeworks') {
             chatui.clear();
             chatroom.room = "#homeworks";
         }
-        else if (e.target.id === 'tests') {
+        else if (e.target.id === '#tests') {
             chatui.clear();
             chatroom.room = "#tests";
         }
         localStorage.setItem('room', JSON.stringify(chatroom.room));
-        chatroom.getChats(data => {
-            chatui.list.appendChild(chatui.templateLi(data));
-        });
+        getChats();
+    }
+});
+
+btnSelectTheme.addEventListener('click', () => {
+    color = `${inpThemeColor.value}80`
+    theme.style.backgroundColor = color;
+    localStorage.setItem('color', JSON.stringify(color));
+});
+
+ul.addEventListener('click', (e) => {
+    if (e.target.tagName === 'IMG') {
+        if (e.target.classList == "tempRemove") {
+            e.target.parentElement.remove();
+        }
+        else {
+            if (confirm("Delete message permanently?")) {
+                chatroom.deleteMsg(e.target.id);
+                e.target.parentElement.remove();
+              }
+        }
     }
 });

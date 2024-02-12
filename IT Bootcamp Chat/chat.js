@@ -29,10 +29,10 @@ class Chatroom {
             created_at: firebase.firestore.Timestamp.fromDate(new Date()),
         })
         .then(() => {
-            console.log("Uspesno dodat chat");
+            console.log(`Message has been successfully added.`);
         })
         .catch((e) => {
-            console.log(`Greska: ${e}`);
+            console.log(`Error: ${e}`);
         });
     }
     getChats(callback) {
@@ -42,8 +42,9 @@ class Chatroom {
         .onSnapshot(snapshot => {
                 snapshot.docChanges().forEach(change => {
                     if (change.type == 'added') {
-                        callback(change.doc.data());
-                        document.querySelector('li:last-of-type').scrollIntoView();
+                        let chatData = change.doc.data();
+                        chatData.id = change.doc.id;
+                        callback(chatData);
                     }
                 });
             });
@@ -53,6 +54,16 @@ class Chatroom {
     }
     updateRoom(newRoom) {
         this.room = newRoom;
+    }
+    deleteMsg(msgId) {
+        this.chats.doc(msgId)
+        .delete()
+        .then(() => {
+            console.log(`Message has been successfully deleted.`);
+        })
+        .catch((e) => {
+            console.log(`Error: ${e}`);
+        });
     }
 }
 

@@ -7,27 +7,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>ITBootcamp Chat</h1>
-        <h3>Choose a chatroom</h3>
-    </header>
-    <nav>
-        <button type="button" name="room" id="general">#general</button>
-        <button type="button" name="room" id="js">#js</button>
-        <button type="button" name="room" id="homeworks">#homeworks</button>
-        <button type="button" name="room" id="tests">#tests</button>
-    </nav>
-    <section>
-        <ul></ul>
-    </section>
-    <form>
-        <textarea rows="1" cols="30" placeholder="Your message..." class="inp" id="inpUser"></textarea>
-        <!--input type="text"  placeholder="Your message..." class="inp" id="inpUser"-->
-        <input type="button" value="Send" id="btnSend">
-        <br>
-        <input type="text"  placeholder="Update username" class="inp" id="inpChange">
-        <input type="button" value="Update" id="btnUpdate">
-    </form>
+    <main>
+        <header>
+            <h1>IT Bootcamp Chat</h1>
+            <h3>Choose a chatroom</h3>
+        </header>
+        <nav>
+            <button type="button" name="room" id="#general">#general</button>
+            <button type="button" name="room" id="#js">#js</button>
+            <button type="button" name="room" id="#homeworks">#homeworks</button>
+            <button type="button" name="room" id="#tests">#tests</button>
+        </nav>
+        <section>
+            <ul></ul>
+        </section>
+        <div></div>
+        <form>
+            <input type="color" class="inp" id="inpThemeColor">
+            <input type="button" value="Change" class="actionBtn" id="btnSelectTheme">
+            <textarea rows="1" placeholder="Your message..." class="inp" id="inpUserMsg"></textarea>
+            <input type="button" value="Send" class="actionBtn" id="btnSend">
+            <input type="text"  placeholder="Update username" class="inp" id="inpChangeUser">
+            <input type="button" value="Update" class="actionBtn" id="btnUpdate">
+        </form>
+    </main>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
