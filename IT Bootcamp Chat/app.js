@@ -70,13 +70,14 @@ btnUpdate.addEventListener('click', () => {
     else {
         chatroom.username = newUsername;
         let usernameMsg = document.createElement('span');
-        usernameMsg.textContent = `Changing Username to: ${newUsername}`;
+        usernameMsg.textContent = `Username changed to: ${newUsername}`;
         localStorage.setItem('username', JSON.stringify(newUsername));
         msgDiv.appendChild(usernameMsg);
         setTimeout(() => {
             msgDiv.removeChild(usernameMsg);
-            getChats();
             }, 3000);
+        chatui.clear();
+        getChats();
     }
     inpChangeUser.value = "";
 });

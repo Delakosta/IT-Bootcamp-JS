@@ -60,12 +60,12 @@ li {
     background-color: rgb(230, 230, 230);
 }
 
-img {
+li img {
     float: right;
     margin-top: -15px;
     width: 16px;
 }
-img:hover {
+li img:hover {
     transform: scale(1.5);
     opacity: 0.7;
     cursor: pointer;
@@ -75,11 +75,11 @@ div {
     padding: 10px;
 }
 
-p:nth-child(1) {
+li p:nth-child(1) {
     font-size: larger;
 }
 
-p:nth-child(2) {
+li p:nth-child(2) {
     font-size: smaller;
     color: darkgrey;
     padding-top: 10px;
