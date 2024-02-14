@@ -15,7 +15,7 @@ const theme = document.querySelector('main');
 
 let username = JSON.parse(localStorage.getItem('username'));
 if (username === null) {
-    username = "Anonymus";
+    username = "Me";
 }
 
 let room = JSON.parse(localStorage.getItem('room'));
@@ -64,7 +64,7 @@ btnUpdate.addEventListener('click', () => {
     if (chatroom.username === newUsername) {
         alert(`Same username.`);
     }
-    else if (newUsername.length < 3 || newUsername.length > 10 || newUsername.trim() == "") {
+    else if (newUsername.length < 2 || newUsername.length > 10 || newUsername.trim() == "") {
         alert("Username must be between 2 and 10 characters long.");
     }
     else {
@@ -91,17 +91,17 @@ nav.addEventListener('click', (e) => {
             chatui.clear();
             chatroom.room = "#general";
         }
-        else if (e.target.id === '#js') {
+        else if (e.target.id === '#friends') {
             chatui.clear();
-            chatroom.room = "#js";
+            chatroom.room = "#friends";
         }
-        else if (e.target.id === '#homeworks') {
+        else if (e.target.id === '#family') {
             chatui.clear();
-            chatroom.room = "#homeworks";
+            chatroom.room = "#family";
         }
-        else if (e.target.id === '#tests') {
+        else if (e.target.id === '#work') {
             chatui.clear();
-            chatroom.room = "#tests";
+            chatroom.room = "#work";
         }
         localStorage.setItem('room', JSON.stringify(chatroom.room));
         getChats();
