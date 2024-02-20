@@ -23,14 +23,9 @@ const CounterList = () => {
                 {/* Array.map() - vraca transformisane elemente */}
                 {/* Array.forEach - simply iterates / ide kroz niz bez da vraca bilo sta */}
                 {/* renderedItems */}
-                {counters.map((counter) => {
-                    <li key={counter.id}>{counter.value}</li>
-                })}
-                {counters.map(counter => {
-                    return <div key={counter.id}>{counter.id}: <CounterListItem counter={counter} />
-
-                        </div>
-                })}
+                {counters.map(counter => 
+                    <div key={counter.id}>{counter.id}: <CounterListItem counter={counter}/></div>
+                )}
             </ul>
         </div>
     )
