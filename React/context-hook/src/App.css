@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+}
+
+.book-list-wrapper {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.book-list-wrapper ul {
+  padding: 0;
+  list-style-type: none;
+}
+.book-list-wrapper li {
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 10px;
+}
